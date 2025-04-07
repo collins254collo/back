@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(
   cors({
-    origin: "https://collins-eta.vercel.app/",
+    origin: "https://collins-eta.vercel.app",
     methods: ["GET", "POST"],
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
