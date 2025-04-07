@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend.js"
+    "start": "nodemon backend.js",
+    "dev": "nodemon backend.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,10 +1,11 @@
 require("dotenv").config();
 
 const express = require("express");
-const nodemon = require("nodemon");
 const nodemailer = require("nodemailer");
+const nodemon = require("nodemon");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(cors());
@@ -44,4 +45,4 @@ app.post("/send_email", async (req, res) => {
     }
   });
 });
-app.listen("3000", console.log("listening to the port"));
+app.listen(PORT, console.log("listening to the port " + PORT));
