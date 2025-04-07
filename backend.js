@@ -8,7 +8,14 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://collins-eta.vercel.app/",
+    methods: ["GET", "POST"],
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  })
+); // Allow all origins
+
 app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
