@@ -37,10 +37,10 @@ const sendAutoReply = async (recipientEmail, recipientName) => {
       from: `"Collins Njogu" <${process.env.EMAIL_USER}>`,
       to: recipientEmail,
       subject: "Thanks for contacting me",
-      text: `Hello ${recipientName || ""},\n\nThank you for reaching out. I’ve received your message and will get back to you shortly.\n\nBest regards,\nCollins Njogu`,
+      text: `Hello ${recipientName || ""},\n\nThank you for your email. I’ve received your message and will respond to you shortly.\n\nBest regards,\nCollins Njogu`,
       html: `
         <p>Hello <b>${recipientName || ""}</b>,</p>
-        <p>Thank you for reaching out. I’ve received your message and will get back to you shortly.</p>
+        <p>Thank you for your email. I’ve received your message and will respond to you shortly.</p>
         <br/>
         <p>Best regards,<br/>Collins Njogu</p>
       `,
