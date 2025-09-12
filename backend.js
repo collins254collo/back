@@ -15,20 +15,17 @@ app.use(
 })
 
 );
+    app.use(
+      cors({
+        origin: [
+          "http://localhost:3000",                // local dev
+          "https://collins-eta.vercel.app",       // your production site
+          /\.vercel\.app$/                        // allow Vercel preview deployments
+        ],
+        methods: ["GET", "POST"],
+      })
+    );
 
-app.use(bodyParser.json());
-
-
-// Nodemailer transporter
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, 
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
 
 
 // Auto-reply function
@@ -52,6 +49,12 @@ const sendAutoReply = async (recipientEmail, recipientName) => {
     console.error(" Error sending auto-reply:", error);
   }
 };
+
+app.use((req, res, next) => {
+  console.log("Incoming request:", req.method, req.url, "Origin:", req.headers.origin);
+  next();
+});
+
 
 // Main contact route
 app.post("/send_email", async (req, res) => {
