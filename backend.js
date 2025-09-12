@@ -9,26 +9,27 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(
-  cors({
-    origin: "https://collins-eta.vercel.app", 
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
+ cors({
+  origin: "https://collins-eta.vercel.app", 
+  methods: ["GET", "POST"],
+})
+
 );
 
 app.use(bodyParser.json());
 
+
 // Nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, 
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
 
 // Auto-reply function
 const sendAutoReply = async (recipientEmail, recipientName) => {
